@@ -68,3 +68,11 @@ resource "aws_security_group" "rds_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+# Voeg je eigen IP toe aan de ingress regels
+ingress {
+  from_port   = 3306
+  to_port     = 3306
+  protocol    = "tcp"
+  cidr_blocks = ["0.0.0.0/24"]
+}
